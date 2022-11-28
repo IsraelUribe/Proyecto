@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granja Automatizada</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" type="image/png" href="/pollo.png"/>
+</head>
+<body onload="initializeApp">
+    <section class = "home">
+        <div class="navbar">
+          <button class= "layaut">Salir</button>
+          <button class= "autolayaut" onclick="initializeApp">Cargar</button>
+        </div>
+        <h1 class = "mt-6 mb-4 text-3xl xl:text-4xl font-bold text-gray-800 text-center blue">Granja Avícola</h1>
+        <div class = "content">
+          <!-- {/*  <br> */} -->
+                <p class = "tituloA"}>Valor de la Humedad</p>
+                <p class = "alimentos"><span id="humedad"> </span> %</p>
+                <p class = "tituloT" >Valor de la temperatura</p>
+                <p  class = "temperaturaV"> <span id="temperatura"> </span> %</p>
+            <!-- {/* </br> */} -->
+        </div>
+        <div class = "content2">
+            <!-- {/* <br></br> */} -->
+                <label class = "tituloAg">Nivel del agua</label>
+                <label class = ""><span id="nivelAgua"> </span>%</label>
+            <label class = "tituloC">Cortinas</label>
+            <button class = "buttonS">
+                Subir
+            </button>
+            <button class = "buttonB">
+                Bajar
+            </button>
+
+        </div>
+    </section>
+  </div>
+  <footer class="columns-2 mt-20 pt-12">
+  <div>
+    <section class= "container_grafico">
+      <div class= "grafico">
+
+      </div>
+      <div class= "container_leyenda">
+          <span class= "leyenda_all">
+              <span class= "color_temperatura"></span>
+              <p class= "valor">40% Temperatura</p>
+          </span>
+          <span class= "leyenda_all">
+              <span class= "color_agua"></span>
+              <p class= "valor">30% Agua</p>
+          </span>
+          <span class= "leyenda_all">
+              <span class= "color_alimento"></span>
+              <p class = "valor">18% Alimento</p>
+          </span>
+          <p class= "total">Total: 10000</p>
+      </div>
+    </section>
+  </div>
+  <div>
+    <iframe src="https://giphy.com/embed/5YyF3umaZV7Ya0gXYd" width="400" height="400" frameBorder="0" class="giphy-embed w-100 h-100 pt-16 pl-6" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/anitober-anitober2018-2018-5YyF3umaZV7Ya0gXYd"></a></p>
+  </div>
+  </footer>
+  <script src="./script.js"></script>
+</body>
+</html>
