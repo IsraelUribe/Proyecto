@@ -36,6 +36,7 @@
     align-items: center;
     padding: 10px 20px;
     gap: 10px;
+    padding-left: 15px;
   
     width: 71px;
     height: 40px;
@@ -180,18 +181,19 @@
     align-items: center;
     padding: 7px 18px;
     gap: 8px;
+    width: 358px;
+    height: 35px;
   
-    padding-left: 130px;
-    padding-top: 130px;
     position: absolute;
-    left: 155.17px;
-    right: 67.33%;
+    left: 5.17%;
+    right: 75.33%;
     top: 38.96%;
     bottom: 56.05%;
+    
   
     /* Gray 5 */
   
-    /*background: #E0E0E0;**/
+    background: #E0E0E0;
     border-radius: 5px;
   }
   

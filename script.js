@@ -10,7 +10,7 @@ function initializeApp() {
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    var db = getFirestore(firebase);;
+    var db = firebase.database();
 
     let aguaLec = "Avicola/AguaDisponible";
     let humedadLec = "Avicola/Humedad";
@@ -57,4 +57,16 @@ function initializeApp() {
     (error) => {
         console.log("Error al leer los datos: " + error.name);
     });
+    
+    document.getElementById('cargar').onclick = function(){
+        dbTemperatura.set(!valorTemperatura);
+        dbAgua.set(!valorAgua);
+        dbHumedad.set(!ValorHumedad);
+
+        setTimeout(() => {
+            dbTemperatura.set(!valorTemperatura);
+            dbAgua.set(!valorAgua);
+            dbHumedad.set(!ValorHumedad)
+        }, 5000);
+    }
 }
