@@ -15,15 +15,18 @@ function initializeApp() {
     let aguaLec = "Avicola/AguaDisponible";
     let humedadLec = "Avicola/Humedad";
     let temperaturaLec = "Avicola/Temperatura";
-
+    let alimentoLec = "Avicola/nivelalimento"
+    
     const dbAgua = db.ref(aguaLec);
     const dbHumedad = db.ref(humedadLec);
     const dbTemperatura = db.ref(temperaturaLec);
+    const dbAlimento = db.ref(alimentoLec);
 
     //Variables
     let valorAgua;
     let ValorHumedad;
     let valorTemperatura;
+    let valorAlimento;
 
     dbHumedad.on(
     "value",
@@ -34,7 +37,8 @@ function initializeApp() {
     },
     (error) => {
         console.log("Error al leer los datos: " + error.name);
-    });
+        }
+    );
 
     dbTemperatura.on(
     "value",
@@ -45,7 +49,8 @@ function initializeApp() {
     },
     (error) => {
         console.log("Error al leer los datos: " + error.name);
-    });
+        }
+    );
 
     dbAgua.on(
     "value",
@@ -56,17 +61,55 @@ function initializeApp() {
     },
     (error) => {
         console.log("Error al leer los datos: " + error.name);
-    });
+        }
+    );
     
+    
+    dbAlimento.on(
+        "value",
+        (snapshot) => {
+            valorAlimento = snapshot.val();
+            console.log(valorAlimento);
+            document.getElementById("nivelAlimento").innerHTML = valorAlimento;
+        },
+        (error) => {
+            console.log("Error al leer los datos: " + error.name);
+        }
+    );   
+        
     document.getElementById('cargar').onclick = function(){
-        dbTemperatura.set(!valorTemperatura);
+        
+        /* dbTemperatura.set(!valorTemperatura);
         dbAgua.set(!valorAgua);
         dbHumedad.set(!ValorHumedad);
-
+        dbAlimento.set(!valorAlimento);
+        
         setTimeout(() => {
             dbTemperatura.set(!valorTemperatura);
             dbAgua.set(!valorAgua);
-            dbHumedad.set(!ValorHumedad)
-        }, 5000);
+            dbHumedad.set(!ValorHumedad);
+            dbAlimento.set(!valorAlimento);
+        }, 8000); */
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'lines',
+            data: {
+                labels: ['Humedad', 'Temperatura', 'Agua'],
+                datasets: [{
+                    label: 'Lecturas',
+                    data: [12,13,15],
+                    borderWidth: 0.5
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
     }
 }
+

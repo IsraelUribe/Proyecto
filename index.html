@@ -10,12 +10,13 @@
     <script src='https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js'></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="shortcut icon" type="image/png" href="/pollo.png"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body onload="initializeApp()">
     <section class = "home">
         <div class="navbar">
           <button class= "layaut">Salir</button>
-          <button class= "autolayaut" id='cargar'>Cargar</button>
+          <button class= "autolayaut" id='cargar'>Graficar</button>
         </div>
         <h1 class = "mt-6 mb-4 text-3xl xl:text-4xl font-bold text-gray-800 text-center blue">Granja Avícola</h1>
         <div class = "content">
@@ -28,8 +29,10 @@
         </div>
         <div class = "content2">
             <!-- {/* <br></br> */} -->
-                <label class = "tituloAg">Nivel del agua</label>
-                <label class = "aguaV"><span id="nivelAgua"> </span>%</label>
+            <label class = "tituloAg">Nivel del agua</label>
+            <label class = "aguaV"><span id="nivelAgua"> </span>%</label>
+            <label class = "tituloAlimento">Nivel de alimento</label>
+            <label class = "valorAlimento"><span id="nivelAlimento"> </span></label>
             <label class = "tituloC">Cortinas</label>
             <button class = "buttonS">
                 Subir
@@ -42,7 +45,8 @@
   </div>
   <footer class="columns-2 mt-20 pt-12">
     <div>
-        <section class= "container_grafico">
+        <canvas class="grafico" id="myChart"></canvas>
+        <!-- <section class= "container_grafico">
         <div class= "grafico">
 
         </div>
@@ -61,11 +65,11 @@
             </span>
             <p class= "total">Total: 10000</p>
         </div>
-        </section>
+        </section> -->
     </div>
-    <div>
+    <!-- <div>
         <iframe src="https://giphy.com/embed/5YyF3umaZV7Ya0gXYd" width="400" height="400" frameBorder="0" class="giphy-embed w-100 h-100 pt-16 pl-6" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/anitober-anitober2018-2018-5YyF3umaZV7Ya0gXYd"></a></p>
-    </div>
+    </div> -->
   </footer>
   <script src="./script.js"></script>
 </body>
