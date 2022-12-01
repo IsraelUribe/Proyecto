@@ -12,15 +12,17 @@ function initializeApp() {
     firebase.initializeApp(firebaseConfig);
     var db = firebase.database();
 
-    let aguaLec = "Avicola/AguaDisponible";
+    let aguaLec = "Avicola/nivelagua";
     let humedadLec = "Avicola/Humedad";
     let temperaturaLec = "Avicola/Temperatura";
-    let alimentoLec = "Avicola/nivelalimento"
+    let alimentoLec = "Avicola/nivelalimento";
+    var cortinas = "Avicola/EstadoCortina"
     
     const dbAgua = db.ref(aguaLec);
     const dbHumedad = db.ref(humedadLec);
     const dbTemperatura = db.ref(temperaturaLec);
     const dbAlimento = db.ref(alimentoLec);
+    const dbCortinas = db.ref(cortinas);
 
     //Variables
     let valorAgua;
@@ -114,6 +116,17 @@ function initializeApp() {
                 }
             });
         },500)
+    }
+    
+    document.getElementById("subir").onclick = function(){
+        dbCortinas.set({
+            dbCortinas : 1
+        });
+    }
+    document.getElementById("bajar").onclick = function(){
+        dbCortinas.set({
+            dbCortinas : 0
+        });
     }
 }
 
