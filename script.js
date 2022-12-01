@@ -76,8 +76,11 @@ function initializeApp() {
             console.log("Error al leer los datos: " + error.name);
         }
     );   
-        
+        const ctx = document.getElementById('myChart');    
     document.getElementById('cargar').onclick = function(){
+        var agua = parseFloat(valorAgua);
+        var humedad = parseFloat(ValorHumedad);
+        var temperatura = parseFloat(valorTemperatura);
         
         /* dbTemperatura.set(!valorTemperatura);
         dbAgua.set(!valorAgua);
@@ -90,26 +93,27 @@ function initializeApp() {
             dbHumedad.set(!ValorHumedad);
             dbAlimento.set(!valorAlimento);
         }, 8000); */
-        const ctx = document.getElementById('myChart');
-
-        new Chart(ctx, {
-            type: 'lines',
-            data: {
-                labels: ['Humedad', 'Temperatura', 'Agua'],
-                datasets: [{
-                    label: 'Lecturas',
-                    data: [12,13,15],
-                    borderWidth: 0.5
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+        
+        setTimeout(() =>{
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Humedad', 'Temperatura', 'Agua'],
+                    datasets: [{
+                        label: 'Lecturas',
+                        data: [humedad,temperatura,agua],
+                        borderWidth: 0.5
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
+            });
+        },500)
     }
 }
 
